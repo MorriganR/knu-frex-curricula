@@ -18,7 +18,11 @@ jobs:
 
       - name: Some install
         run: |
-          sudo apt-get update && sudo apt-get install -y wkhtmltopdf
+          # curl https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.jammy_amd64.deb
+          wget --no-verbose https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.jammy_amd64.deb
+          ls -la
+          # sudo dpkg -i ./wkhtmltox_0.12.6.1-2.jammy_amd64.deb
+          sudo apt-get update && sudo apt-get install -y ./wkhtmltox_0.12.6.1-2.jammy_amd64.deb
           python -m pip install -r requirements.txt
 
       - name: Build doc
