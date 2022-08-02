@@ -14,6 +14,8 @@ table, th, td {
 }
 </style>"""
 
+pageBreak = """<div style="page-break-after: always;"></div>"""
+
 pdfKitOptions = {
     'page-size': 'A4',
     'margin-top': '0.75in',
@@ -48,6 +50,7 @@ for course in coursesList:
         # courseDetail = open(courseDetailFileName, 'r', encoding='utf-8')
         courseDetailUa = open(courseDetailUaFileName, 'r', encoding='utf-8')
         testHtml.write(markdown.markdown(courseDetailUa.read(), extensions=['tables', 'sane_lists'], output_format='html'))
+        testHtml.write(pageBreak)
         # courseDetail.close()
         courseDetailUa.close()
 
