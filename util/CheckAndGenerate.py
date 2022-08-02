@@ -47,7 +47,7 @@ for course in coursesList:
         print(courseDetailUaFileName + ' - ' + str(os.stat(courseDetailUaFileName).st_size))
         # courseDetail = open(courseDetailFileName, 'r', encoding='utf-8')
         courseDetailUa = open(courseDetailUaFileName, 'r', encoding='utf-8')
-        testHtml.write(markdown.markdown(courseDetailUa.read(), extensions=['tables'], output_format='html'))
+        testHtml.write(markdown.markdown(courseDetailUa.read(), extensions=['tables', 'sane_lists'], output_format='html'))
         # courseDetail.close()
         courseDetailUa.close()
 
