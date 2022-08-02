@@ -38,6 +38,7 @@ testHtml.write(testStyle)
 
 coursesDetaisPath = './Bachalor/Computer Engineering/details'
 coursesList = os.listdir(coursesDetaisPath)
+coursesList.sort()
 # print('\n'.join(coursesList))
 for course in coursesList:
     # courseDetailFileName = coursesDetaisPath + '/' + course + '/README.md'
