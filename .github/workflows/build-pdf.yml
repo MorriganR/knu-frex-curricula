@@ -1,0 +1,40 @@
+name: Build pdf
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  run-build:
+    name: Run build
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Checkout (Get codes)
+        uses: actions/checkout@v2
+
+      - name: Some install
+        run: |
+          sudo apt-get update && sudo apt-get install -y wkhtmltopdf
+          python -m pip install -r requirements.txt
+
+      - name: Build doc
+        run: |
+          pwd
+          ls -la && ls -Rla ./util
+          python ./util/CheckAndGenerate.py
+          ls -la && ls -Rla ./temp
+
+
+      - name: Get some info
+        run: |
+          pwd
+          ls -la && ls -Rla ./temp
+
+      - uses: actions/upload-artifact@v2
+        with:
+          name: docs
+          path: temp/*.pdf
