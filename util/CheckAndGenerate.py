@@ -33,7 +33,7 @@ testHtml = open(testHtmlFileName, 'a', encoding='utf-8')
 # testPdf = open(testPdfFileName, 'a', encoding='utf-8')
 
 # set html charset
-# testHtml.write("""<meta http-equiv="Content-type" content="text/html; charset=utf-8" />""")
+testHtml.write("""<meta http-equiv="Content-type" content="text/html; charset=utf-8" />""")
 testHtml.write(testStyle)
 
 coursesDetaisPath = './Bachalor/Computer Engineering/details'

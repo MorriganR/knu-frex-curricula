@@ -23,6 +23,7 @@ jobs:
 
       - name: Build doc
         run: |
+          mkdir -p temp
           pwd
           ls -la && ls -Rla ./util
           python ./util/CheckAndGenerate.py
